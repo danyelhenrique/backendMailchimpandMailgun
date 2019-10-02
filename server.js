@@ -13,8 +13,11 @@ app.use(cors());
 app.post("/subscribes", mail, chi, (req, res) => {
   res.json({ message: "Message recived Thankyou!" });
 });
+app.post("/", (req, res) => {
+  res.json({ message: "Aplication is runing" });
+});
 
-const PORT = process.env.SERVER_PORT;
+const PORT = process.env.PORT || process.env.SERVER_PORT;
 app.listen(PORT, () => {
   console.log(`Backend is running on ${PORT}`);
 });
