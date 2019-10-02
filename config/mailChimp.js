@@ -23,16 +23,20 @@ function mailChimp(req, res, next) {
     },
     body: mcDataPost
   };
-
-  if (email) {
-    request(options, (err, response, body) => {
-      if (err) {
-        console.log(err);
-        res.status(400);
-        return;
-      }
-    });
+  try {
+    if (email) {
+      request(options, (err, response, body) => {
+        if (err) {
+          console.log(err);
+          res.status(400);
+          return;
+        }
+      });
+    }
+  } catch (err) {
+    console.log("Failed to send mail");
   }
+
   next();
 }
 

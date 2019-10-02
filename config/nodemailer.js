@@ -21,10 +21,14 @@ const sendMAIL = (req, res, next) => {
   };
 
   transporter.sendMail(mailOptions, (err, data) => {
-    if (err) {
-      res.status(400).send("ERRO TO SEND MESSAGE");
-      console.log(err);
-      return;
+    try {
+      if (err) {
+        res.status(400).send("ERRO TO SEND MESSAGE");
+        console.log(err);
+        return;
+      }
+    } catch (error) {
+      console.log("Faild do send email");
     }
   });
 
