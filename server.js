@@ -12,7 +12,6 @@ app.use(bodyParser.json());
 
 
 app.post("/subscribes", mail, chi, (req, res) => {
-  console.log("Oi")
   res.json({ message: "Message recived Thankyou!" });
 });
 app.get("/", (req, res) => {
