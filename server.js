@@ -13,7 +13,7 @@ app.use(cors());
 app.post("/subscribes", mail, chi, (req, res) => {
   res.json({ message: "Message recived Thankyou!" });
 });
-app.post("/", (req, res) => {
+app.get("/", (req, res) => {
   res.json({ message: "Aplication is runing" });
 });
 
